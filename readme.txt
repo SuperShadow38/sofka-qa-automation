@@ -112,9 +112,12 @@ No ejecutar dos builds simultáneos sobre el mismo módulo: clean borra target.
 Los reportes generados en target se sobrescriben con clean; evidence se conserva.
 El workflow de GitHub Actions usa Windows/Java 21 y archiva evidence aunque falle.
 
-6. PUBLICACION EN GITHUB - SOLO DESPUES DE AUTORIZACION
-No se ha publicado ni configurado un remoto. Crear un repositorio público vacío
-en GitHub; no incluir archivos iniciales para evitar conflictos de historial.
+6. REPOSITORIO PUBLICO
+Publicado con autorización explícita del propietario en:
+https://github.com/SuperShadow38/sofka-qa-automation
+Los commits usan SuperShadow38 y su correo noreply de GitHub.
+El remoto origin está configurado en la entrega local.
+Para publicar una copia en otro repositorio, crear uno público vacío, sin README.
 Revisar antes de publicar que solo existan datos ficticios y las evidencias deseadas.
 La entrega ya contiene commits locales para verificar un clon limpio. git init
 es solo necesario si se recibe una copia sin .git; omitirlo en el repo existente.
@@ -130,12 +133,13 @@ git commit -m "Implement web and API automation with reproducible evidence"
 git remote add origin https://github.com/USUARIO/REPOSITORIO.git
 git push -u origin main
 
-Sustituir USUARIO y REPOSITORIO. No subir .tools, target, .env ni credenciales.
+Sustituir USUARIO y REPOSITORIO y omitir remote add si origin ya está definido.
+No subir .tools, target, .env ni credenciales.
 No incluir el PDF del enunciado si no se dispone de permiso para redistribuirlo.
 
 7. COMPROBAR COMO EVALUADOR DESDE UN CLON LIMPIO
-En otra carpeta, después de publicar:
-git clone https://github.com/USUARIO/REPOSITORIO.git sofka-evaluator
+En otra carpeta:
+git clone https://github.com/SuperShadow38/sofka-qa-automation.git sofka-evaluator
 cd sofka-evaluator
 
 PowerShell:
@@ -153,5 +157,6 @@ no transformarse en PASS. Las órdenes demo consumen stock del entorno compartid
 
 La reproducción local desde un clon limpio pasó con Git Bash en Windows y se
 documenta en conclusiones.txt y evidence/preflight/clean-clone.json;
-la clonación pública y el workflow remoto quedan pendientes hasta autorizar
-y realizar la publicación. No se promete estabilidad del servicio compartido.
+El workflow remoto y sus artefactos pueden consultarse en:
+https://github.com/SuperShadow38/sofka-qa-automation/actions
+No se promete estabilidad del servicio compartido.

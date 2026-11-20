@@ -4,6 +4,8 @@ Automatización de una compra como invitado en OpenCart y del ciclo de vida de u
 
 Incluye configuración por ambiente, datos ficticios, validaciones de negocio, limpieza de usuarios, reportes HTML y evidencias de ejecuciones reales.
 
+**Repositorio público:** [SuperShadow38/sofka-qa-automation](https://github.com/SuperShadow38/sofka-qa-automation).
+
 ## Alcance
 
 ### Ejercicio 1: compra E2E
@@ -252,7 +254,7 @@ Estos resultados corresponden a las ejecuciones conservadas; no garantizan la di
 
 El [workflow de regresión](.github/workflows/regression.yml) está preparado para GitHub Actions con Windows y Java 21. Se activa por envío a `main`, pull request o ejecución manual.
 
-Ejecuta ambos módulos y conserva las evidencias generadas por ese run durante 14 días, incluso cuando falla la suite. Su ejecución remota queda pendiente de publicar el repositorio.
+Ejecuta ambos módulos y conserva las evidencias generadas por ese run durante 14 días, incluso cuando falla la suite. Consultar el estado y los artefactos en [GitHub Actions](https://github.com/SuperShadow38/sofka-qa-automation/actions).
 
 ## Consideraciones de ejecución
 
@@ -266,24 +268,12 @@ Ejecuta ambos módulos y conserva las evidencias generadas por ese run durante 1
 - `.tools/`, `target/` y archivos de entorno sensibles están excluidos del repositorio.
 - Se verificaron PowerShell y Git Bash en Windows. No se certificaron Linux, macOS ni otros navegadores.
 
-## Publicación y evaluación desde GitHub
+## Evaluación desde GitHub
 
-La entrega está versionada localmente. **La publicación requiere autorización explícita y todavía no se ha realizado.**
-
-Después de autorizarla, crear un repositorio público vacío y configurar el remoto desde esta carpeta. Sustituir `USUARIO` y `REPOSITORIO`:
+Para reproducir la entrega como evaluador:
 
 ```bash
-git status --short
-git remote add origin https://github.com/USUARIO/REPOSITORIO.git
-git push -u origin main
-```
-
-Si existen cambios pendientes, revisarlos y registrarlos antes del envío. No incluir credenciales, herramientas locales ni residuos de compilación.
-
-Para reproducir la entrega como evaluador, después de publicar:
-
-```bash
-git clone https://github.com/USUARIO/REPOSITORIO.git sofka-evaluator
+git clone https://github.com/SuperShadow38/sofka-qa-automation.git sofka-evaluator
 cd sofka-evaluator
 bash scripts/run.sh all
 ```

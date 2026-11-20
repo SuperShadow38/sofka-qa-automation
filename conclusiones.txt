@@ -86,11 +86,21 @@ que el código entregado coincide con el commit ejecutado en el clon; los cambio
 posteriores se limitan a documentación y archivo de evidencias.
 
 LIMITACIONES Y PENDIENTES
-- Publicación pública y ejecución real en GitHub Actions requieren autorización
-  explícita; se prepararon workflow y pasos de publicación, sin ejecutarlos.
+- En la validación local inicial aún no estaba autorizada la publicación.
+  El estado posterior se registra en la actualización de publicación al final.
 - No se certifica ejecución en Linux/macOS ni otros navegadores. El ambiente
   usado es Windows, Java 21 y Edge 157 headless; Bash comprobado con Git Bash.
 - No se prueban pagos reales, cuentas registradas ni otros flujos no solicitados.
 - La orden de demostración queda en OpenCart: no hay una operación autorizada
   de cancelación/borrado disponible en este flujo invitado.
 - La continuidad de los servicios demo y el stock dependen de terceros.
+
+ACTUALIZACION DE PUBLICACION
+El propietario autorizó explícitamente la publicación. Se publicó main en:
+https://github.com/SuperShadow38/sofka-qa-automation
+Git Credential Manager autenticó la subida con la cuenta SuperShadow38.
+Autor y committer: SuperShadow38, con su correo noreply de GitHub.
+El primer workflow Regression se inició para el commit 47b59ce:
+https://github.com/SuperShadow38/sofka-qa-automation/actions/runs/44819117845
+Los resultados remotos deben consultarse en Actions; los reportes locales
+archivados conservan sus resultados y contexto originales.
