@@ -10,5 +10,8 @@
   "java": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)",
   "browser": "Microsoft Edge 157.0.4341.60",
   "timezone": "America/Guayaquil",
-  "bashDirectoryTimestamp": "UTC"
+  "bashDirectoryTimestamp": "UTC",
+  "equivalentAuthoredSourceCommit": "a69cf0e92c00988422fba5116bc960dd7d164d46",
+  "sourceTree": "4ab56fbdbd4bd515784c7923af7b27c787561913",
+  "attributionNote": "La autoría local se actualizó a SuperShadow38 después de ejecutar las pruebas. El commit original y su equivalente con autor corregido tienen un árbol de archivos idéntico."
 }
