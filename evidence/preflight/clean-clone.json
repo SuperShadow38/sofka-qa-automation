@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "136ccb7eb72092a4174720fd1befb8bc2cbd75d2",
+  "clone": ".tools/evaluator",
+  "command": "bash scripts/run.sh all",
+  "exitCode": 0,
+  "noTargetsBeforeRun": true,
+  "noLocalToolsInClone": true,
+  "dependencyCache": "Maven y driver compartidos con el usuario; no se precopiaron targets ni herramientas",
+  "reports": "evidence/runs/20261120-210607-all-bash",
+  "java": "openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)",
+  "browser": "Microsoft Edge 157.0.4341.60",
+  "timezone": "America/Guayaquil",
+  "bashDirectoryTimestamp": "UTC"
+}

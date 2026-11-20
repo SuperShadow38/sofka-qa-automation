@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+
+    <!-- Swiper.js local styles and script -->
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+    <script src="swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const startIndex = parseInt(urlParams.get("screenshot")) || 0;
+
+            new Swiper('.swiper', {
+                initialSlide: startIndex,
+                effect: 'fade',
+                speed: 200,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + "</span>";
+                    },
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .swiper {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: lightgrey;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
+        }
+    </style>
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="b46fbe6b3dcbfc78253c4ac3622676500b200523789d2cc7719b5ef3f5d70b1c.html">Guest Purchase It</a></span>
+                > <span class="truncate-60"><a
+                    href="c5e41234bc8937a4677b01d531746735c64f61184c66908704161955aa0ba5f4.html">WEB-01 Compra de dos productos distintos como invitado </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+        <li >
+            <a href="2a4631d87648e59c428d4cf0e9247f9d286e4679f436ca2ce872e931eb4dfd58.html"><i class="bi bi-chat-text"></i> Stories</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 20-11-2026 16:06</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Guest Purchase It </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="34658a1663fcf042bd7acb3325affbe4e647c8acd84d0228be2f52e1381e61b9.html">10 To 30 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">WEB-01 Compra de dos productos distintos como invitado
+                                    <span class="related-issue-title">(WEB-01)</span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+    <!-- Swiper Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="74882d3b377346a5a9e36848520cd1e1db1439d212e0b9ff5ce9414297dd0039.png" title=" Comprador invitado start shopping" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="74882d3b377346a5a9e36848520cd1e1db1439d212e0b9ff5ce9414297dd0039.png" title=" Comprador invitado opens the browser at http://opencart.abstracta.us/" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="74882d3b377346a5a9e36848520cd1e1db1439d212e0b9ff5ce9414297dd0039.png" title=" Comprador invitado start shopping (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c2d0082597e6013c542d835335f87de8a97e9019dde0abbbfa7033025a2496e3.png" title=" Comprador invitado add product" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c2d0082597e6013c542d835335f87de8a97e9019dde0abbbfa7033025a2496e3.png" title=" Comprador invitado opens the browser at http://opencart.abstracta.us/index.php?route=product/product&amp;product_id=28" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c2d0082597e6013c542d835335f87de8a97e9019dde0abbbfa7033025a2496e3.png" title=" Comprador invitado enters '1' into Cantidad" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9c54fc8c68bb674f5e1eae6e90fcdb4171427e7c17b6b92cc4f7055f45d71384.png" title=" Comprador invitado enters '1' into Cantidad (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9c54fc8c68bb674f5e1eae6e90fcdb4171427e7c17b6b92cc4f7055f45d71384.png" title=" Comprador invitado clicks on Agregar al carrito" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="1a0d9a0b659a028f2c621e267902cd0cdb8bfc8ad9d277d59ca2904889bab38b.png" title=" Comprador invitado clicks on Agregar al carrito (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="5692e7d14a72236966629de1a2d541d6ca6466a2b7df6886e0520cd78e325320.png" title=" Comprador invitado add product (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="fcfe2b21990f8f4ce56a4f7ee66bf61d833b152c673d31c004e75aa6ffea6c0f.png" title=" Comprador invitado add product" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="fcfe2b21990f8f4ce56a4f7ee66bf61d833b152c673d31c004e75aa6ffea6c0f.png" title=" Comprador invitado opens the browser at http://opencart.abstracta.us/index.php?route=product/product&amp;product_id=34" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="fcfe2b21990f8f4ce56a4f7ee66bf61d833b152c673d31c004e75aa6ffea6c0f.png" title=" Comprador invitado enters '1' into Cantidad" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="80bd54ea464282d6bc335c81672c1c50b8b52738a783470f0644947bc21d3b32.png" title=" Comprador invitado enters '1' into Cantidad (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="80bd54ea464282d6bc335c81672c1c50b8b52738a783470f0644947bc21d3b32.png" title=" Comprador invitado clicks on Agregar al carrito" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="cb982d8fdc5e429389ee1b50c527df9464b547a613edf5511c2c4db5ac200703.png" title=" Comprador invitado clicks on Agregar al carrito (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="04dfd21721d5282b927bd072d9e51a008f3af60e3994ef127d89b35e165f10bf.png" title=" Comprador invitado add product (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="892c11a89e65160f6970deb44ef6f8fdd9bcf4244ec5bd3572984e2c134a8731.png" title=" Comprador invitado opens the browser at http://opencart.abstracta.us/index.php?route=checkout/cart" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="892c11a89e65160f6970deb44ef6f8fdd9bcf4244ec5bd3572984e2c134a8731.png" title=" Then Productos y cantidades en el carrito should be ({HTC Touch HD=1, iPod Shuffle=1})" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eac12ee53f9df8d8d68bfc181a7895833db2e01ef1a7ecbf515ef599f1eedb65.png" title=" Comprador invitado checkout as guest" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eac12ee53f9df8d8d68bfc181a7895833db2e01ef1a7ecbf515ef599f1eedb65.png" title=" Comprador invitado clicks on Ir al checkout" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="e57a9372a304a6676998a1867421c8c51414778bf856f033cfef347231a9cd1c.png" title=" Comprador invitado clicks on Guest Checkout" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="b35c813a2d160c18049f6370544def8787d7ec0fc20adad94e2bb42824e6990e.png" title=" Comprador invitado clicks on Guest Checkout (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="b35c813a2d160c18049f6370544def8787d7ec0fc20adad94e2bb42824e6990e.png" title=" Comprador invitado clicks on Continuar como invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="8323bb9637e1ee7b7a466eeb29ce1af87e0d03a378b22033a95e6c4fad3271a8.png" title=" Comprador invitado clicks on Continuar como invitado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6b10a231f9f46bc8ef5ea38e02b8a76e6818ddd81fa99b41b109ef94b2ab38c2.png" title=" Comprador invitado enters 'Prueba' into Dato del comprador: lastname" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c1a4ba565a59d312d26c199e20350c14919e18c81072c8f077839e0cfcd3985a.png" title=" Comprador invitado enters 'Prueba' into Dato del comprador: lastname (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c1a4ba565a59d312d26c199e20350c14919e18c81072c8f077839e0cfcd3985a.png" title=" Comprador invitado enters '0990000000' into Dato del comprador: telephone" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="dba2300fc56ba2b4128f4e6aaaff3e82ec14c22d5809b6ad8129a10d73196d3b.png" title=" Comprador invitado enters '0990000000' into Dato del comprador: telephone (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="dba2300fc56ba2b4128f4e6aaaff3e82ec14c22d5809b6ad8129a10d73196d3b.png" title=" Comprador invitado enters 'London' into Dato del comprador: city" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="812b1e9805f929c9582a73e3dd2bf864b3bcc125af82c19fc0bec27c593c6c96.png" title=" Comprador invitado enters 'London' into Dato del comprador: city (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="812b1e9805f929c9582a73e3dd2bf864b3bcc125af82c19fc0bec27c593c6c96.png" title=" Comprador invitado enters 'qa-demo@example.com' into Dato del comprador: email" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="d592ed68c41a0d57bb97e9a71a0ef849ac7f87ea589b5022e636b195933a9637.png" title=" Comprador invitado enters 'qa-demo@example.com' into Dato del comprador: email (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="d592ed68c41a0d57bb97e9a71a0ef849ac7f87ea589b5022e636b195933a9637.png" title=" Comprador invitado enters 'Ana' into Dato del comprador: firstname" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c63c22ad23bb0d2c74fc854fee7b49f3eacea061a2818785493bce0d7863d21a.png" title=" Comprador invitado enters 'Ana' into Dato del comprador: firstname (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c63c22ad23bb0d2c74fc854fee7b49f3eacea061a2818785493bce0d7863d21a.png" title=" Comprador invitado enters '123 Test Street' into Dato del comprador: address-1" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c1364d9f2fbb34cf50ec4f5519464bd95bf29b9d3ef74215cea8ab0a298b9067.png" title=" Comprador invitado enters '123 Test Street' into Dato del comprador: address-1 (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c1364d9f2fbb34cf50ec4f5519464bd95bf29b9d3ef74215cea8ab0a298b9067.png" title=" Comprador invitado enters 'SW1A 1AA' into Dato del comprador: postcode" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6c409083a055d8a8a4c98708730dd78942e7843bed22d4a5a66b193090aa3f91.png" title=" Comprador invitado enters 'SW1A 1AA' into Dato del comprador: postcode (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6c409083a055d8a8a4c98708730dd78942e7843bed22d4a5a66b193090aa3f91.png" title=" Comprador invitado selects United Kingdom on Dato del comprador: country" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="cc966ed91cc52312a12692026a70d9388c1a8e20638bdad6fa5d755a239db59f.png" title=" Comprador invitado selects United Kingdom on Dato del comprador: country (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="cc966ed91cc52312a12692026a70d9388c1a8e20638bdad6fa5d755a239db59f.png" title=" Comprador invitado selects Greater London on Dato del comprador: zone" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="565e30950eeb8613b7b548447c43b73a327a0c63acaa42d50a74bd032a506418.png" title=" Comprador invitado selects Greater London on Dato del comprador: zone (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="565e30950eeb8613b7b548447c43b73a327a0c63acaa42d50a74bd032a506418.png" title=" Comprador invitado clicks on Guardar datos del invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="71e8ff629d4654f3d19cb7d29600237de8992476cf40abcefbbe436bdc8598fb.png" title=" Comprador invitado clicks on Guardar datos del invitado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ac9033473bbe588ab78e71be9ea7c1e8e1274ee20216f468a764d1fd723f7864.png" title=" Comprador invitado clicks on M&eacute;todo de env&iacute;o flat.flat" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="08f5871ae6c21c50116d5f57bd192cdc7453768cbcbc4161b83a153b3aca92b7.png" title=" Comprador invitado clicks on M&eacute;todo de env&iacute;o flat.flat (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="08f5871ae6c21c50116d5f57bd192cdc7453768cbcbc4161b83a153b3aca92b7.png" title=" Comprador invitado clicks on Continuar env&iacute;o" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="d81954eb775c8d31ff3b0afe1d85e5280a018f490b4e7de4dceced1e82fd61d9.png" title=" Comprador invitado clicks on Continuar env&iacute;o (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="006beb645819aa3d9d7d951e415de0c8fcb4b6b810ad9e692b115d2a71fdc290.png" title=" Comprador invitado clicks on Pago de demostraci&oacute;n contra entrega" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c12b5f12169bf44b766ab4a4e4e673db8455cad8a3363526438591ef571cfd8c.png" title=" Comprador invitado clicks on Pago de demostraci&oacute;n contra entrega (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c12b5f12169bf44b766ab4a4e4e673db8455cad8a3363526438591ef571cfd8c.png" title=" Comprador invitado clicks on Aceptar t&eacute;rminos" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="b145b3f4feceb7f5537fc3ed4419119c9c8a8a582edae8741cf92a2e89f792aa.png" title=" Comprador invitado clicks on Aceptar t&eacute;rminos (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="b145b3f4feceb7f5537fc3ed4419119c9c8a8a582edae8741cf92a2e89f792aa.png" title=" Comprador invitado clicks on Continuar pago" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="7ae85ea66a46fa4c1d8a802de26d6a356447659438829ef8050ee1e6c7fbedb9.png" title=" Comprador invitado clicks on Continuar pago (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="cf467af761618de42266fff0a6b31c7cb6c5493604981bc9a0036a3f2c02319c.png" title=" Comprador invitado clicks on Confirmar orden" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="d56f6ac82e656e39a6a0f65265f93af24eed051931ced8a3075b39b5d97b4915.png" title=" Comprador invitado clicks on Confirmar orden (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c8935bc858f02ea5afc39e17e883b997ca59b8e3b4ca6307d8023405adaa9fe6.png" title=" Comprador invitado checkout as guest (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c8935bc858f02ea5afc39e17e883b997ca59b8e3b4ca6307d8023405adaa9fe6.png" title=" Then Confirmaci&oacute;n exacta de la compra should be 'Your order has been placed!': <span class='success-color'>SUCCESS</span>" width="0" />
+                </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 4.2.34</span>
+</div>
+</body>
+</html>

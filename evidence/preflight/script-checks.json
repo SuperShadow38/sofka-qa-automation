@@ -1,0 +1,18 @@
+[
+  {
+    "case": "tee-error",
+    "mavenExit": 0,
+    "teeExit": 9,
+    "expected": 2,
+    "observed": 2,
+    "passed": true
+  },
+  {
+    "case": "maven-error",
+    "mavenExit": 7,
+    "teeExit": 9,
+    "expected": 7,
+    "observed": 7,
+    "passed": true
+  }
+]

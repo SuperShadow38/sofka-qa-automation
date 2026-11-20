@@ -10,13 +10,13 @@ las pruebas de integración y permite generar reportes antes de fallar verify.
 La raíz permite -fae para comprobar ambos aunque uno falle.
 
 ## Tareas
-- [ ] Explorar URL efectiva, DOM, productos y checkout en navegador limpio.
-- [ ] Crear Wrapper oficial, POM padre, módulos y configuración.
-- [ ] Definir escenarios primero; implementar Tasks, Targets y Questions web.
-- [ ] Implementar ciclo API y limpieza que preserve el error original.
-- [ ] Ejecutar cada módulo y después la raíz, conservar reportes originales.
-- [ ] Revisar y corregir errores de código, comprobar reproducción desde copia limpia.
-- [ ] Documentar comandos, trazabilidad, resultados reales y publicación manual.
+- [x] Explorar URL efectiva, DOM, productos y checkout en navegador limpio.
+- [x] Crear Wrapper oficial, POM padre, módulos y configuración.
+- [x] Definir escenarios primero; implementar Tasks, Targets y Questions web.
+- [x] Implementar ciclo API y limpieza que preserve el error original.
+- [x] Ejecutar cada módulo y después la raíz, conservar reportes originales.
+- [x] Revisar y corregir errores de código, comprobar reproducción desde clon limpio.
+- [x] Documentar comandos, trazabilidad, resultados reales y publicación manual.
 
 ## Criterios de revisión
 No pagos reales; checkout solo con pago de demostración. Sesión web nueva.
@@ -32,3 +32,8 @@ Versiones y fuentes oficiales en docs/references.md. Comentarios solo puntuales.
   Maven Central devuelven 200. Se requiere acceso de red para ejecutar.
 - Maven y dependencias se descargan desde Maven Central; herramientas locales
   se mantienen ignoradas en .tools y no forman parte de la entrega.
+- Verificación individual: web 1/1; API real 1/1 y limpieza local 2/2.
+- Regresión raíz PowerShell y clon limpio Bash: ambos módulos SUCCESS.
+- Revisión independiente: códigos de error de tee, artefacto CI solo del run
+  actual y selector con parámetro product_id exacto; corregidos y comprobados.
+- Git permanece local. Publicación y ejecución remota no autorizadas todavía.

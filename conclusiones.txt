@@ -52,7 +52,7 @@ Hallazgos:
 REGRESION CONJUNTA
 Comando: scripts/run.ps1 -Suite all -Label regression.
 Maven ejecutado: mvnw.cmd -B -ntp -fae clean verify.
-Evidencia: evidence/runs/20261120-160319-all-regression/.
+Evidencia: evidence/history/20261120-160319-all-regression.zip.
 Resultado: raíz SUCCESS, web-tests SUCCESS, api-tests SUCCESS. Una compra E2E,
 un escenario API real y dos comprobaciones locales de limpieza, todos aprobados.
 Reportes originales Serenity/Karate, XML y capturas preservados sin editar.
@@ -61,14 +61,35 @@ REVISION
 Revisión independiente de código: se corrigieron la conservación del código de
 salida cuando falla tee en Bash, la selección del artefacto actual en CI y la
 comparación exacta del product_id al localizar filas del carrito.
-La comprobación desde clon local limpio del código final se registra a continuación
-al completar la validación. No hay publicación ni remoto GitHub configurado.
+Comprobación adicional de los ajustes de revisión:
+- evidence/preflight/script-checks.json: fallo sintético de tee devuelve 2;
+  si Maven también falla, se conserva su código original (7 en la comprobación).
+- evidence/preflight/selector-check.json: el selector real distingue 12 y 123
+  sin coincidencias por prefijo, comprobado sobre DOM local en Edge.
+
+REPRODUCCION DESDE CLON LIMPIO
+Se inicializó un repositorio exclusivamente local y se clonó en .tools/evaluator
+con git clone --no-hardlinks. El clon no contenía target ni .tools.
+Comando ejecutado dentro del clon: bash scripts/run.sh all.
+Maven ejecutado: bash mvnw -B -ntp -fae clean verify.
+Resultado: BUILD SUCCESS, web-tests SUCCESS y api-tests SUCCESS; 1 E2E web,
+1 escenario API real y 2 tests locales de limpieza aprobados. Código de salida 0.
+Evidencia final: evidence/runs/20261120-210607-all-bash/.
+Fecha: 20/11/2026 16:06 America/Guayaquil; el nombre Bash usa UTC (21:06).
+Detalles del commit y ambiente: evidence/preflight/clean-clone.json.
+Se reutilizó la caché normal de dependencias Maven y driver del usuario; se
+compiló todo desde fuentes. No se afirma una caché de dependencias vacía.
+PowerShell y Bash/Wrapper verificados en Windows. Sin publicación ni remoto.
+Los reportes finales se abrieron directamente desde archivos locales en Edge:
+Serenity 100% y Karate 1 escenario aprobado, sin errores JavaScript. Se verificó
+que el código entregado coincide con el commit ejecutado en el clon; los cambios
+posteriores se limitan a documentación y archivo de evidencias.
 
 LIMITACIONES Y PENDIENTES
 - Publicación pública y ejecución real en GitHub Actions requieren autorización
   explícita; se prepararon workflow y pasos de publicación, sin ejecutarlos.
-- No se certifica ejecución en Linux/macOS ni otros navegadores; sí se proporcionan
-  comandos Bash. El ambiente usado es Windows, Java 21 y Edge 157 headless.
+- No se certifica ejecución en Linux/macOS ni otros navegadores. El ambiente
+  usado es Windows, Java 21 y Edge 157 headless; Bash comprobado con Git Bash.
 - No se prueban pagos reales, cuentas registradas ni otros flujos no solicitados.
 - La orden de demostración queda en OpenCart: no hay una operación autorizada
   de cancelación/borrado disponible en este flujo invitado.

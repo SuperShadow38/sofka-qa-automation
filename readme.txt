@@ -116,6 +116,10 @@ El workflow de GitHub Actions usa Windows/Java 21 y archiva evidence aunque fall
 No se ha publicado ni configurado un remoto. Crear un repositorio público vacío
 en GitHub; no incluir archivos iniciales para evitar conflictos de historial.
 Revisar antes de publicar que solo existan datos ficticios y las evidencias deseadas.
+La entrega ya contiene commits locales para verificar un clon limpio. git init
+es solo necesario si se recibe una copia sin .git; omitirlo en el repo existente.
+Si git status no muestra cambios pendientes, omitir también git add/commit:
+la entrega ya está versionada localmente.
 Desde esta carpeta (los comandos Git son iguales en PowerShell y Bash):
 
 git init -b main
@@ -147,6 +151,7 @@ de limpieza aprobados. Abrir los reportes HTML, verificar confirmación exacta y
 secuencia API. Un fallo del servicio externo debe investigarse y conservarse,
 no transformarse en PASS. Las órdenes demo consumen stock del entorno compartido.
 
-La reproducción local desde una copia limpia se documenta en conclusiones.txt;
+La reproducción local desde un clon limpio pasó con Git Bash en Windows y se
+documenta en conclusiones.txt y evidence/preflight/clean-clone.json;
 la clonación pública y el workflow remoto quedan pendientes hasta autorizar
 y realizar la publicación. No se promete estabilidad del servicio compartido.

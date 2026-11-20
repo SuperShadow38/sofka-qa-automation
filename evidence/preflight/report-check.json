@@ -1,0 +1,16 @@
+[
+  {
+    "suite": "web",
+    "file": "web/serenity/index.html",
+    "title": "Serenity Reports",
+    "loaded": true,
+    "pageErrors": []
+  },
+  {
+    "suite": "api",
+    "file": "api/karate-reports/karate-summary.html",
+    "title": "Karate Summary Report",
+    "loaded": true,
+    "pageErrors": []
+  }
+]

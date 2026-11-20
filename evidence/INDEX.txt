@@ -1,8 +1,8 @@
 EVIDENCIAS REALES
 
-Resultado conjunto inicial:
-runs/20261120-160319-all-regression/
-  execution.json: comando y exitCode 0.
+RESULTADO FINAL DESDE CLON LIMPIO, CODIGO FINAL:
+runs/20261120-210607-all-bash/
+  execution.txt: comando y exit code 0. El nombre de carpeta usa UTC.
   console.log: salida completa Maven.
   web/serenity/index.html: reporte web, capturas y URL efectiva.
   web/failsafe-reports/: 1 prueba aprobada.
@@ -12,6 +12,8 @@ runs/20261120-160319-all-regression/
   la limpieza, distintos del reporte del servicio real.
 
 Historial (extraer cada ZIP conservando su estructura antes de abrir el HTML):
+history/20261120-160319-all-regression.zip: ambos módulos aprobados desde la
+  raíz con PowerShell, antes de los ajustes finales de revisión.
 history/20261120-160149-web-css-selector.zip: web individual aprobada.
 history/20261120-160047-api-verification.zip: API individual aprobada.
 history/20261120-160005-web-selenium-fix.zip: fallo previo de agregado; corregido.
@@ -24,6 +26,11 @@ petstore-v2-swagger.json: contrato real descargado el 2026-11-20.
 browser.json, capturas y HTML: inspección navegador y URL efectiva.
 inventory.json: inventario de productos revisado antes de elegir la pareja.
 checkout-network.json: respuestas reales de checkout de demostración sin cookies.
+clean-clone.json: commit y condiciones de la reproducción local aprobada.
+script-checks.json: códigos de salida de Bash con fallos sintéticos de escritura.
+selector-check.json: comprobación local del selector con IDs 12 y 123.
+report-check.json y final-*-report.png: reportes HTML finales abiertos desde
+  archivos locales en Edge, recursos cargados y sin errores JavaScript.
 confirm-blocked.*: un intento exploratorio volvió al primer paso; las ejecuciones
   finales completas posteriores se comprueban en Serenity, sin omitir aserciones.
 

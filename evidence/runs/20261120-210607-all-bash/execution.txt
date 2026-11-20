@@ -1,0 +1,2 @@
+Command: bash mvnw -B -ntp -fae clean verify
+Exit code: 0

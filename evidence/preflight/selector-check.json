@@ -1,0 +1,16 @@
+[
+  {
+    "id": "12",
+    "xpath": "//div[@id='content']//form//tbody/tr[td/a[substring-before(concat(substring-after(@href,'product_id='),'&'),'&')='12']]",
+    "count": 1,
+    "text": "Producto 12",
+    "passed": true
+  },
+  {
+    "id": "123",
+    "xpath": "//div[@id='content']//form//tbody/tr[td/a[substring-before(concat(substring-after(@href,'product_id='),'&'),'&')='123']]",
+    "count": 1,
+    "text": "Producto 123",
+    "passed": true
+  }
+]
