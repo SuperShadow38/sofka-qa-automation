@@ -1,0 +1,9 @@
+{
+  "id": "#(userId)",
+  "username": "#(username)",
+  "firstName": "Ana",
+  "lastName": "Prueba",
+  "email": "qa.initial@example.com",
+  "phone": "0990000000",
+  "userStatus": 1
+}

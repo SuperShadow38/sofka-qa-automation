@@ -1,0 +1,75 @@
+RESULTADOS REALES - 20 NOVIEMBRE 2026, AMERICA/GUAYAQUIL
+
+ALCANCE Y DISEÑO
+Se implementaron ambos ejercicios del PDF en Java 21 con Maven Wrapper 3.9.9.
+Módulos independientes: web-tests (Serenity Screenplay) y api-tests (Karate).
+La última solicitud de Screenplay sustituye la propuesta inicial de POM.
+Se conservan versiones, configuración, matriz de trazabilidad y evidencias reales.
+
+EJERCICIO 1 - WEB
+Ejecución individual aprobada: evidence/history/20261120-160149-web-css-selector.zip.
+Comando: mvnw.cmd -B -ntp -fae -pl web-tests clean verify.
+Resultado: 1 prueba, 0 fallos, 0 errores. Confirmación exacta verificada:
+"Your order has been placed!". Sesión nueva, dos productos y cantidades correctas.
+Se usaron HTC Touch HD (28) e iPod Shuffle (34), una unidad por producto,
+Guest Checkout, dirección ficticia en United Kingdom, Flat Rate y Cash On Delivery.
+No se ingresaron tarjetas ni se realizó un pago real.
+
+Hallazgos:
+- La URL HTTP inicial redirige a HTTPS en el navegador. El reporte registra
+  https://opencart.abstracta.us/ como URL efectiva.
+- MacBook estaba agotado. iPhone figuraba In Stock en su ficha pero el carrito
+  lo marcaba con ***. Se eligieron productos con stock comprobado en el carrito.
+- El inventario es compartido y puede cambiar; la prueba falla con diagnóstico
+  si los productos dejan de estar disponibles, sin cambiarlos silenciosamente.
+- La configuración inicial de capacidades de Edge necesitaba browserName
+  MicrosoftEdge. Se corrigió y se comprobó el arranque real.
+- Selenium transitivo intentaba descargar desde el CDN retirado azureedge.net.
+  Se fijó Selenium BOM 4.38.0, usando el servidor actual de Microsoft.
+- Los selectores CSS se declararon explícitamente con By.cssSelector; la
+  ejecución posterior comprobó agregado, carrito y compra completa.
+- Edge 157 muestra un aviso de versión CDP sin binding específico; estos tests
+  usan WebDriver estándar, no APIs CDP, y las pruebas reales completaron el flujo.
+
+EJERCICIO 2 - API
+Ejecución individual aprobada: evidence/history/20261120-160047-api-verification.zip.
+Comando: mvnw.cmd -B -ntp -fae -pl api-tests clean verify.
+Resultado: 1 escenario real aprobado y 2 pruebas JUnit de limpieza aprobadas.
+Petstore V2: POST 200, GET 200, PUT 200, GET 200, DELETE 200 y GET final 404.
+Las consultas comprobaron todos los datos enviados, cambios de firstName/email
+y conservación del username. Se usó un usuario UUID ficticio y se eliminó.
+
+Hallazgos:
+- Swagger V2 tiene especificación incompleta para respuestas exitosas de
+  mutaciones. Los códigos y ApiResponse comprobados corresponden a lo observado
+  en el servidor de demostración, sin inventar garantías ausentes del contrato.
+- La limpieza afterScenario intenta borrar y consultar al usuario propio cuando
+  falla una aserción intermedia. Si la limpieza falla, conserva el error original.
+- CleanupTest verifica ambas ramas con HTTP local; los reportes Karate internos
+  contienen fallos intencionales y los tests JUnit exteriores los comprueban.
+  Estos resultados se distinguen del escenario real, que debe aprobar.
+
+REGRESION CONJUNTA
+Comando: scripts/run.ps1 -Suite all -Label regression.
+Maven ejecutado: mvnw.cmd -B -ntp -fae clean verify.
+Evidencia: evidence/runs/20261120-160319-all-regression/.
+Resultado: raíz SUCCESS, web-tests SUCCESS, api-tests SUCCESS. Una compra E2E,
+un escenario API real y dos comprobaciones locales de limpieza, todos aprobados.
+Reportes originales Serenity/Karate, XML y capturas preservados sin editar.
+
+REVISION
+Revisión independiente de código: se corrigieron la conservación del código de
+salida cuando falla tee en Bash, la selección del artefacto actual en CI y la
+comparación exacta del product_id al localizar filas del carrito.
+La comprobación desde clon local limpio del código final se registra a continuación
+al completar la validación. No hay publicación ni remoto GitHub configurado.
+
+LIMITACIONES Y PENDIENTES
+- Publicación pública y ejecución real en GitHub Actions requieren autorización
+  explícita; se prepararon workflow y pasos de publicación, sin ejecutarlos.
+- No se certifica ejecución en Linux/macOS ni otros navegadores; sí se proporcionan
+  comandos Bash. El ambiente usado es Windows, Java 21 y Edge 157 headless.
+- No se prueban pagos reales, cuentas registradas ni otros flujos no solicitados.
+- La orden de demostración queda en OpenCart: no hay una operación autorizada
+  de cancelación/borrado disponible en este flujo invitado.
+- La continuidad de los servicios demo y el stock dependen de terceros.

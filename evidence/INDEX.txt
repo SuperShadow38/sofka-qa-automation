@@ -1,0 +1,32 @@
+EVIDENCIAS REALES
+
+Resultado conjunto inicial:
+runs/20261120-160319-all-regression/
+  execution.json: comando y exitCode 0.
+  console.log: salida completa Maven.
+  web/serenity/index.html: reporte web, capturas y URL efectiva.
+  web/failsafe-reports/: 1 prueba aprobada.
+  api/karate-reports/karate-summary.html: escenario API real aprobado.
+  api/surefire-reports/: 2 pruebas de limpieza aprobadas.
+  api/cleanup-verification/: fallos locales intencionales usados para probar
+  la limpieza, distintos del reporte del servicio real.
+
+Historial (extraer cada ZIP conservando su estructura antes de abrir el HTML):
+history/20261120-160149-web-css-selector.zip: web individual aprobada.
+history/20261120-160047-api-verification.zip: API individual aprobada.
+history/20261120-160005-web-selenium-fix.zip: fallo previo de agregado; corregido.
+history/20261120-155913-web-verification.zip: diagnóstico del CDN antiguo de
+  EdgeDriver. El archivado original fue interrumpido por otro clean: recursos
+  HTML incompletos; usar console.log y failsafe-reports para este intento.
+
+Preflight:
+petstore-v2-swagger.json: contrato real descargado el 2026-11-20.
+browser.json, capturas y HTML: inspección navegador y URL efectiva.
+inventory.json: inventario de productos revisado antes de elegir la pareja.
+checkout-network.json: respuestas reales de checkout de demostración sin cookies.
+confirm-blocked.*: un intento exploratorio volvió al primer paso; las ejecuciones
+  finales completas posteriores se comprueban en Serenity, sin omitir aserciones.
+
+Todos los datos de comprador y usuarios son ficticios. Los reportes originales
+incluyen rutas del entorno y timestamps. La evidencia histórica se comprime
+para evitar miles de archivos repetidos en el repositorio.

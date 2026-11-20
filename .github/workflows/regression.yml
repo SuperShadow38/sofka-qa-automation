@@ -1,0 +1,30 @@
+name: Regression
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Run both exercises
+        id: run_tests
+        shell: pwsh
+        run: ./scripts/run.ps1 -Suite all -Label ci
+      - name: Preserve reports even on failure
+        if: always() && steps.run_tests.outputs.evidence_path != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-evidence
+          path: ${{ steps.run_tests.outputs.evidence_path }}
+          retention-days: 14

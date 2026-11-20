@@ -1,0 +1,6 @@
+{
+  "started": "2026-11-20T16:03:19.2229532-05:00",
+  "finished": "2026-11-20T16:04:22.4185326-05:00",
+  "command": "mvnw.cmd -B -ntp -fae clean verify",
+  "exitCode": 0
+}

@@ -1,0 +1,13 @@
+ID,Ejercicio,Requisito,Implementación,Evidencia
+WEB-01-A,1,Sesión nueva y URL efectiva,StartShopping,Reporte Serenity y captura inicial
+WEB-01-B,1,Dos productos distintos disponibles,PurchaseData y AddProduct,Pasos y capturas Serenity
+WEB-01-C,1,Carrito con cantidades esperadas,CartContents,Comparación de mapa nombre-cantidad y número de filas
+WEB-01-D,1,Guest Checkout ficticio,CheckoutAsGuest,Datos y pasos de comprador invitado
+WEB-01-E,1,Envío y pago de demostración,CheckoutAsGuest,Flat Rate y Cash On Delivery
+WEB-01-F,1,Confirmación exacta,GuestPurchaseIT,Your order has been placed! en Serenity
+API-01-A,2,Crear usuario único,users/lifecycle.feature,POST y ApiResponse en Karate
+API-01-B,2,Consultar persistencia inicial,users/lifecycle.feature,GET comparado con payload y esquema
+API-01-C,2,Actualizar nombre y correo conservando username,users/lifecycle.feature,PUT y payload actualizado
+API-01-D,2,Consultar cambios persistidos,users/lifecycle.feature,GET comparado con updatedUser y diferencias
+API-01-E,2,Eliminar y comprobar ausencia,users/lifecycle.feature,DELETE 200 y GET 404
+API-02,2,Limpieza tras fallo,users/cleanup.js y CleanupTest,Surefire 2 pruebas y reportes de fallos intencionales locales
